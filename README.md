@@ -1,5 +1,7 @@
 # CAD Agentic Workflow Prototype
 
+![CAD 도면 해석 Agentic Workflow](<assets/agentic workflow.jpg>)
+
 AWS 기술 블로그의 CAD 도면 분석용 Agentic Workflow 구조를 로컬에서 실행 가능한 Python 프로토타입으로 구현한 예제입니다.
 
 이 구현은 실제 Bedrock/AgentCore 호출 대신 deterministic mock reasoner를 사용합니다. DXF 파서, 이미지 렌더러, VLM 호출부는 인터페이스로 분리되어 있어 나중에 `ezdxf`, `matplotlib`, Amazon Bedrock Converse API, AgentCore Runtime 등으로 교체할 수 있습니다.
@@ -33,7 +35,7 @@ python -m agentic_cad_workflow.cli --input sample.json --output result.json
 입력 JSON은 `CadDocument` 스키마를 따릅니다. 실제 DXF를 직접 읽는 구현은 아직 포함하지 않았고, DXF에서 추출된 중간 표현을 입력으로 받는 형태입니다.
 
 ## 구현된 블로그 구조
-
+![AWS 기반 CAD Agent 시스템 아키텍처](assets/CAD%20agent%20system.jpg)
 1. Orchestrator Agent
    - common info 파일과 개별 계통도 파일을 분류합니다.
    - 공통 정보 집계, 개별 정보 집계, 상세 분석 순서를 조율합니다.
@@ -42,7 +44,7 @@ python -m agentic_cad_workflow.cli --input sample.json --output result.json
    - Example Analyzer가 좋은 패치 기준을 학습합니다.
    - Section Splitter가 섹션 패치를 만듭니다.
    - Evaluator/Error Analyzer/Strategy Planner/Code Modifier 루프가 누락 제목, 테이블 혼재 같은 실패를 수정합니다.
-
+![지능형 분할 에이전트 및 피드백 루프](assets/agentic%20workflow%20korean.jpg)
 3. 정보 추출
    - 범례와 기기 목록을 텍스트 JSON과 심볼 카탈로그로 분리합니다.
    - 패치별 관제점 후보와 연결 기기를 추출합니다.

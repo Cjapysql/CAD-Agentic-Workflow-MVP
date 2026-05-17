@@ -143,7 +143,7 @@ LLM/VLM 호출부를 추상화한 파일입니다. 현재는 실제 모델 호�
 - `EC_FAN + SA + DI` 조합이 `SF`의 `status`로 해석되는지
 - 같은 `DM` 심볼이 덕트 문맥에 따라 다른 댐퍼로 해석되는지
 
-## 구현된 블로그 구조
+## 블로그 구조
 
 ![AWS 기반 CAD Agent 시스템 아키텍처](assets/CAD%20agent%20system.jpg)
 
